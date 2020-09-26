@@ -9,4 +9,8 @@ bf = Brainfuck(256) # The default amount of cells is 30000.
 
 # To run a program:
 bf.run('program') # replace program with the program you want to run, e.g.
-bf.run(',[>,]<[.<]')```
+bf.run(',[>,]<[.<]')
+
+# To reset the tape to 0 (e.g. before running another program):
+bf.reset()
+```
