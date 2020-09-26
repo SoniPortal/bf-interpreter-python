@@ -59,3 +59,6 @@ class Brainfuck:
                         elif command[cmd_pointer] == '[':
                             rbcounter -= 1
             cmd_pointer += 1
+    def reset(self):
+        self.tape = [0] * len(self.tape)
+        self.pointer = 0
