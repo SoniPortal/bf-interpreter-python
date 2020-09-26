@@ -14,3 +14,16 @@ bf.run(',[>,]<[.<]')
 # To reset the tape to 0 (e.g. before running another program):
 bf.reset()
 ```
+
+## TODO:
+* add option to configure live input when running (choice of one character input every time necessary or supply with full input at start)
+* different cell sizes, e.g.
+  * byte per cell
+  * two bytes per cell
+  * unbounded integer
+  * zero+positive integers (raising error on below zero)
+  * custom
+* different memory types, e.g.
+  * non-wrapping (raising error when outside of memory range)
+  * unbounded
+  * unbounded in positive direction
