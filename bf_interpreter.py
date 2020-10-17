@@ -36,28 +36,28 @@ class Brainfuck:
                     self.tape[self.pointer] = 0 # if there is EOL (no input)
             elif command[cmd_pointer] == '[': # uhoh time for parsing
                 if self.tape[self.pointer] == 0: # skip to corresponding right bracket if byte at pointer is 0, otherwise do nothing
-                    lbcounter = 0 # counter for left brackets encountered
-                    searching = True
+                    bracket_counter = 0 # counter for left brackets encountered
+                    searching = True # searching for corresponding right bracket
                     while searching:
                         cmd_pointer += 1
                         if command[cmd_pointer] == '[':
-                            lbcounter += 1
-                        elif lbcounter == 0 and command[cmd_pointer] == ']':
+                            bracket_counter += 1
+                        elif bracket_counter == 0 and command[cmd_pointer] == ']':
                             searching = False
                         elif command[cmd_pointer] == ']':
-                            lbcounter -= 1
+                            bracket_counter -= 1
             elif command[cmd_pointer] == ']':
                 if self.tape[self.pointer] != 0: # skip back to corresponding left bracket if byte at pointer is not 0, otherwise do nothing
-                    rbcounter = 0 # counter for right brackets encountered
-                    searching = True
+                    bracket_counter = 0 # counter for right brackets encountered
+                    searching = True # searching for corresponding left bracket
                     while searching:
                         cmd_pointer -= 1
                         if command[cmd_pointer] == ']':
-                            rbcounter += 1
-                        elif rbcounter == 0 and command[cmd_pointer] == '[':
+                            bracket_counter += 1
+                        elif bracket_counter == 0 and command[cmd_pointer] == '[':
                             searching = False
                         elif command[cmd_pointer] == '[':
-                            rbcounter -= 1
+                            bracket_counter -= 1
             cmd_pointer += 1
     def reset(self):
         self.tape = [0] * len(self.tape)
